@@ -1,0 +1,30 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore XAMPP-specific files
+xampp/*
+!xampp/htdocs/disaster # Allow project folder inside htdocs
+
+# Ignore PHP dependencies (if using Composer)
+vendor/
+composer.lock
+
+# Ignore environment variables (security)
+.env
+.env.local
+.env.*.local
+
+# Ignore logs and cache
+logs/
+*.log
+cache/
+*.cache
+
+# Ignore database backup files
+*.sql
+*.sqlite
+*.db
+
+# Ignore Visual Studio Code workspace settings
+.vscode/
