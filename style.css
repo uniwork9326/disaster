@@ -1,0 +1,71 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Montserrat', Arial, sans-serif; /* Fallback to Arial */
+}
+
+/* Sidebar Styling */
+#sidebar {
+    width: 25%; /* Sidebar width */
+    height: 100vh;
+    background-color: #f8f9fa;
+    padding: 0; /* Remove default padding */
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    border-right: 1px solid #ddd;
+}
+
+/* Sidebar Content Container */
+#sidebar-container {
+    padding: 0 0px; /* Adjust only left and right padding */
+    text-align: center; /* Center-align contents */
+}
+
+/* Logo Styling */
+#logo {
+    display: block;
+    margin: 20px auto 20px; /* Add spacing above and below */
+    max-width: 80%; /* Scale the logo size to fit the sidebar */
+    height: auto;
+    cursor: pointer; /* Show pointer on hover */
+}
+
+/* Dropdown and Location Display */
+label {
+    font-weight: bold;
+}
+
+#location-display {
+    margin: 15px 0;
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* Detonate Button */
+button {
+    font-family: 'Montserrat', Arial, sans-serif; /* Ensure Montserrat is applied */
+    width: 80%; /* Ensure button width matches container */
+    margin: 20px auto; /* Center button horizontally */
+    display: block;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    letter-spacing: 0.5px; /* Add spacing between letters */
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Map Styling */
+#map {
+    margin-left: 25%; /* Adjust map to align next to the sidebar */
+    width: 75%; /* Map takes the remaining space */
+    height: 100vh; /* Full height for the map */
+}
