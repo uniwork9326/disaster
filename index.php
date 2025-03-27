@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
   <title>Disaster Simulator</title>
-
+  
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
@@ -51,5 +52,6 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <!-- Custom JavaScript -->
   <script src="script.js"></script>
+  <script src="calculateArea.js"></script>
 </body>
 </html>
