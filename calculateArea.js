@@ -28,12 +28,12 @@ fetch('counties.geojson')
       .then(response => {
         console.log(`✅ Saved: ${countyName}`, response);
         i++;
-        setTimeout(sendNext, 50); // Wait 50ms between each request
+        setTimeout(sendNext, 5); // Wait 50ms between each request
       })
       .catch(err => {
         console.error(`❌ Error saving ${countyName}:`, err);
         i++;
-        setTimeout(sendNext, 100); // Wait a bit longer if error occurs
+        setTimeout(sendNext, 10); // Wait a bit longer if error occurs
       });
     }
 
