@@ -128,6 +128,22 @@ button:hover {
     background-color: #0056b3;
 }
 
+#info-button {
+  display: inline-block; /* Make the link behave like a block element */
+  padding: 15px 30px; /* Adjust the padding */
+  font-size: 18px;
+  background: #D1AD3E; /* Button background color */
+  color: white;
+  text-decoration: none; /* Remove underline from the link */
+  border-radius: 10px; /* Rounded corners */
+  text-align: center; /* Center the text inside */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+#info-button:hover {
+  background: #8A7229; /* Change background on hover */
+}
+
 /* Map Styling */
 #map {
     margin-left: 25%; /* Adjust map to align next to the sidebar */

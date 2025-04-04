@@ -81,23 +81,56 @@ function fetchBombDataAndDraw() {
 
 
 // Draw the circle based on fetched bomb radius and magnitude
+// Draw the circle based on fetched bomb radius and magnitude
+// Draw the circle based on fetched bomb radius and magnitude
+// Draw the circle based on fetched bomb radius and magnitude
 function drawCircle() {
   if (!bombData.radius_m || isNaN(bombData.radius_m)) return; // Check if radius is valid
 
   const position = marker.getLatLng();
 
+  // Remove the previous circle layers if they exist
   if (bombCircle) {
     map.removeLayer(bombCircle);
   }
 
+  // Remove previously created circles if they exist
+  map.eachLayer(function (layer) {
+    if (layer instanceof L.Circle) {
+      map.removeLayer(layer); // Remove any circle layers
+    }
+  });
+
   // Calculate the adjusted radius based on the magnitude multiplier
   const adjustedRadius = bombData.radius_m * magnitudeMultiplier;
 
-  if (isNaN(adjustedRadius) || adjustedRadius <= 0) return; // Ensure the radius is a valid positive number
+  // Ensure the radius is a valid positive number
+  if (isNaN(adjustedRadius) || adjustedRadius <= 0) return;
 
-  // Create a new circle with the adjusted radius
-  bombCircle = L.circle(position, {
-    radius: adjustedRadius, // Apply magnitude multiplier here
+  // Create 3 circles with fixed scaling (to adjust the size)
+  const outerRadius = adjustedRadius * 1.3; // Outer circle will be 1.3 times the adjusted radius
+  const middleRadius = adjustedRadius; // Middle circle (default size)
+  const innerRadius = adjustedRadius * 0.7; // Inner circle will be 0.7 times the adjusted radius
+
+  // Outer Circle (Blue)
+  const outerCircle = L.circle(position, {
+    radius: outerRadius,
+    color: 'blue',
+    fillColor: 'blue',
+    fillOpacity: 0.4
+  }).addTo(map);
+
+  // Middle Circle (Green)
+  const middleCircle = L.circle(position, {
+    radius: middleRadius,
+    color: 'green',
+    fillColor: 'green',
+    fillOpacity: 0.4
+  }).addTo(map);
+
+  // Inner Circle (Red)
+  const innerCircle = L.circle(position, {
+    radius: innerRadius,
     color: 'red',
     fillColor: 'red',
     fillOpacity: 0.4
@@ -110,6 +143,9 @@ function drawCircle() {
   });
   console.log("Turf circle created:", turfCircle);
 }
+
+
+
 
 
 
@@ -131,7 +167,7 @@ const sliderValueDisplay = document.getElementById('slider-value');
 
 magnitudeSlider.addEventListener('input', (e) => {
   // Update the magnitude multiplier
-  magnitudeMultiplier = e.target.value / 100;
+  magnitudeMultiplier = e.target.value;
   // Update the displayed value
   sliderValueDisplay.innerHTML = `${e.target.value}X`;
   // Redraw the circle with the updated multiplier
